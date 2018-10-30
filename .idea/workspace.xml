@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b5cb0f4-cbdb-4bb4-a942-249cdda478a7" name="Default Changelist" comment="" />
+    <list default="true" id="0b5cb0f4-cbdb-4bb4-a942-249cdda478a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/admin/characteristic/create_characteristic.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="525">
-              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -149,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/admin/category/edit_category.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -158,7 +161,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -336,6 +339,7 @@
         <option value="$PROJECT_DIR$/admin/category/create_category.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2b189033-8cee-413a-8d1a-c4a15566fb3a/console_3.sql" />
         <option value="$PROJECT_DIR$/admin/category/edit_category.php" />
+        <option value="/var/www/indianivy/backend/app/Http/Controllers/Api/PhotoController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -368,11 +372,6 @@
             <path>
               <item name="Katty" type="b2602c69:ProjectViewProjectNode" />
               <item name="Katty" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Katty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Katty" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -435,12 +434,12 @@
       <workItem from="1540403195717" duration="10099000" />
       <workItem from="1540452072681" duration="162000" />
       <workItem from="1540841509766" duration="7033000" />
-      <workItem from="1540876294977" duration="515000" />
+      <workItem from="1540876294977" duration="2524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43289000" />
+    <option name="totallyTimeSpent" value="45298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -458,7 +457,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2833843" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.45463812" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info active="true" anchor="bottom" id="Database Console" order="12" visible="true" weight="0.32858595" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -593,7 +592,7 @@
     <entry file="file://$PROJECT_DIR$/admin/characteristic/create_characteristic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -713,14 +712,14 @@
     <entry file="file://$PROJECT_DIR$/admin/category/edit_category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
