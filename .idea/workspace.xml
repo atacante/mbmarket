@@ -435,12 +435,12 @@
       <workItem from="1540403195717" duration="10099000" />
       <workItem from="1540452072681" duration="162000" />
       <workItem from="1540841509766" duration="7033000" />
-      <workItem from="1540876294977" duration="256000" />
+      <workItem from="1540876294977" duration="515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43030000" />
+    <option name="totallyTimeSpent" value="43289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -450,7 +450,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.43899897" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32925585" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -464,7 +464,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.18186843" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.18186843" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
