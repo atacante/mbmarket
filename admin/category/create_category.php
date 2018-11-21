@@ -28,10 +28,9 @@ if (!empty($_POST)) {
     $result_select_id = mysqli_query($conn, $sql_sel_id);
     $id_row = mysqli_fetch_array($result_select_id);
     $relation_arr = $_POST['characteristic'];
-    var_dump($id_row);
-    var_dump($relation_arr);
+
     foreach ($relation_arr as $key => $value) {
-        var_dump($value);
+
         $sql_create_rel = "INSERT INTO `category_characteristic`(`category_id`, `characteristic_id`)
                         VALUES ('$id_row[0]', '$value')";
         $result_relation=mysqli_query($conn, $sql_create_rel);
