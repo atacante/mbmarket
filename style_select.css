@@ -1,0 +1,52 @@
+ul {
+    list-style: none;
+    float: left;
+    margin: 5px;
+    padding: 2px;
+    background-color: burlywood;
+    border-radius: 5px;
+}
+
+#search_brand ul{
+    list-style: none;
+    float: left;
+    background-color: antiquewhite;
+    padding: 5px;
+    margin-top: 4px;
+    vertical-align: center;
+    border-color: blue;
+    border-radius: 5px;
+
+}
+
+
+#search_brand ul li{
+    display: none;
+    font-family: Verdana, sans-serif;
+    left: 0;
+    white-space: nowrap;
+    position: relative;
+    float: none;
+    width: inherit;
+    border-color: blue;
+    border-radius: 5px;
+
+}
+
+#search_brand ul:hover li{
+    display: block;
+    white-space: nowrap;
+    background-color: aquamarine;
+    left: 0;
+    -webkit-transition: 0.25s linear capasity;
+
+}
+
+#search_brand ul:hover li a{
+    text-decoration: none;
+}
+
+#search_brand ul:hover li:hover{
+    background-color: azure;
+}
+

@@ -1,0 +1,30 @@
+a {
+    text-decoration: none;
+}
+
+div.top{
+    height: 185px;
+    float: none;
+}
+
+div.top div
+{
+    height: 90%;
+    background-color: aqua;
+    margin: 4px 4px 4px 4px;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    align-content: center;
+    vertical-align: center;
+}
+
+#top_menu ul li {
+    float: left;
+    padding: 2px;
+    margin: 2px;
+    background-color: blue;
+    border-color: blue;
+    border-radius: 5px;
+
+}
+
