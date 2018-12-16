@@ -1,6 +1,7 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
+
 
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET["edit_id"];

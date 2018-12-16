@@ -1,6 +1,6 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
 
 $sql_sel = "SELECT * FROM `characteristic`";
 

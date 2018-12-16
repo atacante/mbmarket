@@ -1,6 +1,7 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
+$db_mbmarket=Helper::getInstance();
 
 if (isset($_GET['id'])) {
     $edit_id = $_GET["id"];
@@ -8,11 +9,9 @@ if (isset($_GET['id'])) {
     $sql_list = "SELECT * 
       FROM  `brand` WHERE `brand_id`=$edit_id";
 
-    $result = mysqli_query($conn, $sql_list);
+    $row_1=$db_mbmarket->mysqlListToArray($sql_list);
 
-    $row_1 = mysqli_fetch_assoc($result);
-
-    $brand_name_1 = $row_1['brand_name'];
+    $brand_name_1 = $row_1[0]['brand_name'];
 
     if (!empty($_POST)) {
         $brand_name = $_POST['brand_name'];
@@ -20,9 +19,7 @@ if (isset($_GET['id'])) {
 
         $sql_edit = "UPDATE `brand` SET `brand_name`='$brand_name' WHERE `brand_id`='$edit_id'";
 
-        $result = mysqli_query($conn, $sql_edit);
-
-        if (!$result) {
+        if (!$db_mbmarket->mysqlChange($sql_edit)) {
             echo "неверные данные";
         } else {
             header("Location: create_brand.php");

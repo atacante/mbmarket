@@ -1,6 +1,7 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
+
 
 $sql_list_category = "SELECT * FROM `category`";
 $sql_list_brand = "SELECT * FROM `brand`";

@@ -1,7 +1,7 @@
 <?php
 
-require_once '../db_connection.php';
 
+require_once '../Helper.php';
 
 
 if (!empty($_POST)) {

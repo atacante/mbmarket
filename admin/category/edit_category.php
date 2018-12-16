@@ -1,6 +1,7 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
+$db_mbMarket = Helper::getInstance();
 
 if (isset($_GET['id'])) {
     $edit_id = $_GET["id"];
@@ -11,15 +12,16 @@ if (isset($_GET['id'])) {
             LEFT JOIN `characteristic` on characteristic.characteristic_id=category_characteristic.characteristic_id
     WHERE category.`category_id`=$edit_id";
 
-    $result = mysqli_query($conn, $sql_list);
-    $result_select=mysqli_query($conn,$sql_list);
+    $list = $db_mbMarket->mysqlListToArray($sql_list);
 
     $sql_list_all = "SELECT * FROM `characteristic`";
-    $result_list_all = mysqli_query($conn, $sql_list_all);
 
-    $row_1 = mysqli_fetch_assoc($result);
+    $list_all = $db_mbMarket->mysqlListToArray($sql_list_all);
 
-    $category_name_1 = $row_1['category_name'];
+
+
+
+    $category_name_1 = $list_all['category_name'];
 
     if (!empty($_POST)) {
         $new_category_name = $_POST['category_name'];
@@ -28,16 +30,16 @@ if (isset($_GET['id'])) {
 
         $sql_edit = "UPDATE `category` SET `category_name`='$new_category_name' WHERE `category_id`='$edit_id'";
 
-        $result = mysqli_query($conn, $sql_edit);
+        $db_mbMarket->mysqlChange($sql_edit);
 
         $sql_clear_char = "DELETE FROM `category_characteristic` WHERE `category_id`='$edit_id'";
 
-        $result_clear = mysqli_query($conn, $sql_clear_char);
+        $db_mbMarket->mysqlChange($sql_clear_char);
         $result_update = 1;
         foreach ($characteristic_arr as $value) {
             $sql_update_char = "INSERT INTO `category_characteristic` (`category_id`, `characteristic_id`) 
                               VALUES ('$edit_id', '$value')";
-            $result_update = mysqli_query($conn, $sql_update_char);
+            $result_update =  $db_mbMarket->mysqlChange($sql_update_char);
         }
         if (!$result||!$result_clear||!$result_update) {
             echo "неверные данные";

@@ -1,40 +1,35 @@
 <?php
 
-require_once '../db_connection.php';
-
+require_once '../Helper.php';
+$db_mbmarket = Helper::getInstance();
 
 
 if (!empty($_POST)) {
     $brand_name = $_POST['brand_name'];
 
 
-
-
     $sql_create = "INSERT INTO `brand` (`brand_name`)
              VALUES ('$brand_name')";
 
-    //   var_dump($sql);
-    $result = mysqli_query($conn, $sql_create);
-
-    if (!$result) {
-        echo "неверные данные </br>";
-    }
+    $db_mbmarket->mysqlChange($sql_create);
 }
+
 
 if (!empty($_GET)) {
     if (isset($_GET['id'])) {
         $get_id = $_GET["id"];
         $sql_del = "DELETE FROM  `brand` WHERE `brand_id`=$get_id";
+        $db_mbmarket->mysqlChange($sql_del);
 
-        $result = mysqli_query($conn, $sql_del);
     }
 
 }
 
-$sql_list = "SELECT * 
+$sql_list = "SELECT *
       FROM  `brand`";
 
-$result = mysqli_query($conn, $sql_list);
+
+$listedArray = $db_mbmarket->mysqlListToArray($sql_list);
 
 
 echo "<table border='1'>
@@ -44,11 +39,11 @@ echo "<table border='1'>
                 <th>Действия</th>
         </thead>";
 
-while ($row = mysqli_fetch_assoc($result)) {
+foreach ($listedArray as $value) {
 
-    $row_id = $row["brand_id"];
+    $row_id = $value["brand_id"];
     echo "<tr>
-            <th>", $row["brand_name"], "</th>
+            <th>", $value["brand_name"], "</th>
             <th><a href='create_brand.php?id=$row_id'>Удалить</a><br/>
                 <a href='edit_brand.php?id=$row_id'>Редактировать</a>
             </th>

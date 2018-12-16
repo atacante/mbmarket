@@ -1,10 +1,12 @@
 <?php
 
-require_once '../db_connection.php';
+require_once '../Helper.php';
+$db_mbMarket=Helper::getInstance();
+
 
 $sql_sel= "SELECT * FROM `characteristic`";
 
-$result=mysqli_query($conn, $sql_sel);
+$all = $db_mbMarket->mysqlListToArray($sql_sel);
 
 
 if (!empty($_POST)) {
@@ -14,26 +16,22 @@ if (!empty($_POST)) {
     $sql_create = "INSERT INTO `category` (`category_name`)
              VALUES ('$category_name')";
 
-    //   var_dump($sql);
-    $result_create = mysqli_query($conn, $sql_create);
+    $db_mbMarket->mysqlChange($sql_create);
 
-    $row_create = mysqli_fetch_assoc($result_create);
-
-    if (!$result_create) {
-        echo "неверные данные </br>";
-    }
 
     $sql_sel_id = "SELECT MAX(category_id) FROM `category`";
 
-    $result_select_id = mysqli_query($conn, $sql_sel_id);
-    $id_row = mysqli_fetch_array($result_select_id);
+    $id_row = $db_mbMarket->mysqlListToArray($sql_sel_id);
+    $id_category = $id_row[0]["MAX(category_id)"];
+    var_dump($id_category);
     $relation_arr = $_POST['characteristic'];
 
     foreach ($relation_arr as $key => $value) {
 
         $sql_create_rel = "INSERT INTO `category_characteristic`(`category_id`, `characteristic_id`)
-                        VALUES ('$id_row[0]', '$value')";
-        $result_relation=mysqli_query($conn, $sql_create_rel);
+                        VALUES ('$id_category', '$value')";
+
+        $db_mbMarket->mysqlChange($sql_create_rel);
     }
 }
 if (!empty($_GET)) {
@@ -41,7 +39,7 @@ if (!empty($_GET)) {
         $get_id = $_GET["id"];
         $sql_del = "DELETE FROM  `category` WHERE `category_id`=$get_id";
 
-        $result_delete = mysqli_query($conn, $sql_del);
+        $db_mbMarket->mysqlChange($sql_del);
     }
 
 }
@@ -49,7 +47,7 @@ if (!empty($_GET)) {
 $sql_list = "SELECT * 
       FROM  `category`";
 
-$result_list = mysqli_query($conn, $sql_list);
+$row = $db_mbMarket->mysqlListToArray($sql_list);
 
 
 echo "<table border='1'>
@@ -62,21 +60,21 @@ echo "<table border='1'>
 
 
 
-while ($row = mysqli_fetch_assoc($result_list)) {
+foreach ($row as $value) {
 
-    $row_id = $row["category_id"];
+    $row_id = $value["category_id"];
 
     $sql_characteristic = "SELECT * FROM `category_characteristic`
                               INNER JOIN `characteristic` on category_characteristic.characteristic_id = characteristic.characteristic_id WHERE `category_id`=$row_id ";
 
-    $result_characteristic = mysqli_query($conn, $sql_characteristic);
+    $row_characteristic =  $db_mbMarket->mysqlListToArray($sql_characteristic);
 
     echo "<tr>
-            <th>", $row["category_name"], "</th>
+            <th>", $value["category_name"], "</th>
             <th>";
-                while ($row_characteristic = mysqli_fetch_assoc($result_characteristic))
+                foreach ($row_characteristic as $category)
                 {
-                   echo  $row_characteristic["characteristic_name"]."<br/>";
+                   echo  $category["characteristic_name"]."<br/>";
                 }
     echo            "</th>
             <th><a href='create_category.php?id=$row_id'>Удалить</a><br/>
@@ -93,9 +91,9 @@ echo "</table>";
     <p>
         <input type="text" name="category_name" placeholder="категория"/>
         <select name="characteristic[]" multiple>
-            <?php while ($row=mysqli_fetch_assoc($result)){
+            <?php foreach ($all as $character){
             ?>
-            <option value=<?php echo $row['characteristic_id']?>><?php echo $row['characteristic_name']?></option>
+            <option value=<?php echo $character['characteristic_id']?>><?php echo $character['characteristic_name']?></option>
             <?php }
             ?>
         </select>
