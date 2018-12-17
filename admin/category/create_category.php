@@ -12,26 +12,35 @@ $all = $db_mbMarket->mysqlListToArray($sql_sel);
 if (!empty($_POST)) {
     $category_name = $_POST['category_name'];
 
+    $sql_check = "SELECT 1 FROM `category` WHERE `category_name` = '$category_name'";
+    $checkResult=$db_mbMarket->mysqlListToArray($sql_check);
 
-    $sql_create = "INSERT INTO `category` (`category_name`)
+    if (empty($checkResult)) {
+
+        $sql_create = "INSERT INTO `category` (`category_name`)
              VALUES ('$category_name')";
 
-    $db_mbMarket->mysqlChange($sql_create);
+        $db_mbMarket->mysqlChange($sql_create);
 
 
-    $sql_sel_id = "SELECT MAX(category_id) FROM `category`";
+        $sql_sel_id = "SELECT MAX(category_id) FROM `category`";
 
-    $id_row = $db_mbMarket->mysqlListToArray($sql_sel_id);
-    $id_category = $id_row[0]["MAX(category_id)"];
-    var_dump($id_category);
-    $relation_arr = $_POST['characteristic'];
+        $id_row = $db_mbMarket->mysqlListToArray($sql_sel_id);
+        $id_category = $id_row[0]["MAX(category_id)"];
 
-    foreach ($relation_arr as $key => $value) {
+        if (isset($_POST['characteristic'])) {
 
-        $sql_create_rel = "INSERT INTO `category_characteristic`(`category_id`, `characteristic_id`)
+            $relation_arr = $_POST['characteristic'];
+            foreach ($relation_arr as $key => $value) {
+
+                $sql_create_rel = "INSERT INTO `category_characteristic`(`category_id`, `characteristic_id`)
                         VALUES ('$id_category', '$value')";
 
-        $db_mbMarket->mysqlChange($sql_create_rel);
+                $db_mbMarket->mysqlChange($sql_create_rel);
+            }
+        }
+    } else {
+        echo "Такая запись уже существует";
     }
 }
 if (!empty($_GET)) {
